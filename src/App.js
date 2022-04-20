@@ -1,7 +1,14 @@
+import First from "./components/FirstComponet";
+import FormButton from "./components/formComp";
+
+/* Main App */
 function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      
+      <First />
+      <FormButton/>
+
     </div>
   );
 }
