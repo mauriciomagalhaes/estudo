@@ -1,13 +1,34 @@
 import {useState} from 'react'
 
 function ListRender() {
-  const [List] = useState(['Mauricio', 'Amanda', 'ALice']) 
+  const [user, setUser] = useState([
+    {id:1, name: 'Mauricio', age: 44},
+    {id:2, name: 'Amanda', age: 40},
+    {id:3, name: 'Alice', age:5},
+  
+  ])
+  
+  const handleRemove = () => {
+    const randomNumber = Math.floor(Math.random() * 4)
+    console.log(randomNumber)
+    
+    setUser((prevUsers) => {
+      return prevUsers.filter((user) => randomNumber !== user.id)
+    })
+  }
+
+  
   return (
-
+    <>
     <ul>
-        {List.map((item, key) => <li key={key}>{item}</li>)}
+       {user.map(user => (
+          <li key={user.id}>
+            {user.name} - {user.age}
+          </li>
+       ))}
     </ul>
-
+    <button onClick={handleRemove}>Delete</button>
+    </>
   )
 }
 
